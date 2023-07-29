@@ -1,6 +1,6 @@
 // Firebird Query Builder & Compiler
 import inherits from 'inherits';
-import QueryCompiler from "knex/lib/query/compiler";
+import QueryCompiler from "knex/lib/query/querycompiler";
 
 function QueryCompiler_Firebird(client, builder) {
   QueryCompiler.call(this, client, builder);
@@ -41,6 +41,7 @@ Object.assign(QueryCompiler_Firebird.prototype, {
 
   _prepInsert(insertValues) {
     const newValues = {};
+    console.log(insertValues)
     for (const key in insertValues) {
       const value = insertValues[key];
       if (typeof value !== 'undefined') {
